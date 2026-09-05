@@ -1,127 +1,263 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MUATH ALOUFI | Computer Engineering</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        .logo {
+            font-weight: 800;
+            letter-spacing: 1px;
+            font-size: 18px;
+        }
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #ffffff;
+        }
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+        h1 {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+        h1 span {
+            background: linear-gradient(90deg, #38bdf8, #c084fc, #f43f5e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            color: #94a3b8;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .btn-primary {
+            background: #2563eb;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.2s;
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .profile-card {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        .profile-card img {
+            width: 100%;
+            max-height: 320px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-bottom: 15px;
+        }
+        .status-badge {
+            display: inline-block;
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #1f2937;
+            padding-bottom: 10px;
+        }
+        .cred-card {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .contact-section {
+            margin-top: 60px;
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+        }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .contact-pill {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.2s;
+        }
+        .contact-pill:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Apple Style Glass Navbar -->
-    <nav class="apple-nav">
-        <div class="nav-content">
-            <a href="#" class="nav-logo">MUATH ALOUFI<span>.</span></a>
-            <ul class="nav-menu">
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#credentials">CV & Certs</a></li>
-                <li><a href="#contact" class="nav-contact-btn">Get in Touch</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">MUATH ALOUFI.</div>
+            <nav>
+                <a href="#overview">Overview</a>
+                <a href="#credentials">CV & Certs</a>
+                <a href="#contact">Get in Touch</a>
+            </nav>
+        </header>
 
-    <!-- Hero Section -->
-    <header id="overview" class="apple-hero">
-        <div class="hero-container">
-            <div class="hero-content animate-fade-in">
-                <div class="apple-badge">
-                    <i class="fas fa-microchip"></i> Professional Portfolio
-                </div>
-                <h1>MUATH ALOUFI<br><span class="gradient-text">Computer Engineering</span></h1>
-                <p class="hero-desc">
-                    An engineering journey dedicated to building reliable technical systems and intelligent solutions with absolute precision.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#credentials" class="apple-btn-primary">View CV & Credentials <i class="fas fa-arrow-right"></i></a>
-                    <a href="#contact" class="apple-btn-secondary">Let's Connect</a>
-                </div>
-            </div>
-
-            <!-- Personal Image Frame with Apple Glow & Float Animation -->
-            <div class="hero-image-wrapper animate-float">
-                <div class="glow-backdrop"></div>
-                <div class="image-card">
-                    <img src="muath.jpeg" alt="MUATH ALOUFI" class="profile-img">
-                    <div class="floating-badge">
-                        <i class="fas fa-circle-dot pulsating"></i> Open for Opportunities
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- CV & Credentials Section -->
-    <section id="credentials" class="apple-section alt-bg">
-        <div class="section-container">
-            <div class="section-title-wrapper">
-                <h2><span class="gradient-text">CV</span> <span class="gradient-text">and</span> <span class="gradient-text">Credentials.</span></h2>
-                <p>A professional background built on academic excellence, technical track, and continuous certifications.</p>
-            </div>
-
-            <div class="credentials-wrapper">
+        <!-- Hero Section -->
+        <section class="hero" id="overview">
+            <div>
+                <span class="badge">Professional Portfolio</span>
+                <h1>MUATH ALOUFI<br><span>Computer Engineering</span></h1>
+                <p>An engineering journey dedicated to building reliable technical systems and intelligent solutions with absolute precision.</p>
                 
-                <div class="credentials-grid" style="display: grid; gap: 20px;">
-                    
-                    <!-- 1. CV Card -->
-                    <div class="apple-card cv-grid-card" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
-                        <div class="cv-card-content" style="display: flex; align-items: center; gap: 15px;">
-                            <i class="fas fa-file-pdf pdf-icon" style="font-size: 24px; color: #f43f5e;"></i>
-                            <div>
-                                <h3 class="gradient-text" style="margin: 0; font-size: 18px;">CV</h3>
-                                <p style="margin: 0; color: #94a3b8; font-size: 14px;">CV.pdf</p>
-                            </div>
-                        </div>
-                        <a href="CV.pdf" target="_blank" class="apple-btn-primary small-btn" style="padding: 8px 16px; font-size: 14px; text-decoration: none;">View / Download</a>
-                    </div>
-
-                    <!-- 2. Professional Accreditation (SCE) Card -->
-                    <div class="apple-card minimalist-card" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
-                        <div style="display: flex; align-items: center; gap: 15px;">
-                            <i class="fas fa-certificate card-mini-icon" style="font-size: 24px; color: #38bdf8;"></i>
-                            <div>
-                                <h4 style="margin: 0 0 5px 0; color: #fff; font-size: 16px;">Professional Accreditation - Computer Engineering</h4>
-                                <p style="margin: 0; color: #94a3b8; font-size: 13px;">Saudi Council of Engineers (SCE) | Membership No: 1281856</p>
-                            </div>
-                        </div>
-                        <a href="Certificate.pdf" target="_blank" class="apple-btn-primary small-btn" style="padding: 8px 16px; font-size: 14px; text-decoration: none;">View Certificate</a>
-                    </div>
-
+                <div class="btn-group">
+                    <a href="CV.pdf" target="_blank" class="btn-primary">View CV & Credentials →</a>
+                    <a href="https://www.linkedin.com/in/eng-muath-aloufi" target="_blank" class="btn-secondary">LinkedIn</a>
+                    <a href="http://github.com/muath-aloufi-eng" target="_blank" class="btn-secondary">GitHub</a>
                 </div>
-
             </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="apple-section contact-hero">
-        <div class="section-container text-center" style="text-align: center;">
-            <h2>Get in Touch.</h2>
-            <p>I look forward to your communication and supporting my professional career path.</p>
+            <div class="profile-card">
+                <img src="muath.jpeg" alt="Muath Aloufi">
+                <span class="status-badge">🟢 Open for Opportunities</span>
+            </div>
+        </section>
+
+        <!-- Credentials Section -->
+        <section id="credentials">
+            <h2 class="section-title">Certificates & Credentials</h2>
             
-            <div class="apple-contact-links" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 25px;">
-                <a href="tel:0563610800" class="contact-pill" style="text-decoration: none;">
-                    <i class="fas fa-phone"></i> 0563610800
-                </a>
-                <a href="mailto:Muath.aloufi.eng@gmail.com" class="contact-pill" style="text-decoration: none;">
-                    <i class="fas fa-envelope"></i> Email
-                </a>
-                <a href="https://www.linkedin.com/in/eng-muath-aloufi" target="_blank" class="contact-pill" style="text-decoration: none;">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="http://github.com/muath-aloufi-eng" target="_blank" class="contact-pill" style="text-decoration: none;">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
+            <div class="cred-card">
+                <div>
+                    <h3 style="font-size: 16px; color: #38bdf8; margin-bottom: 5px;">CV - Curriculum Vitae</h3>
+                    <p style="margin: 0; font-size: 13px; color: #94a3b8;">Complete professional background and experience</p>
+                </div>
+                <a href="CV.pdf" target="_blank" class="btn-primary" style="padding: 8px 16px; font-size: 13px;">View CV</a>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="apple-footer">
-        <div class="section-container" style="text-align: center; padding: 20px; color: #64748b; font-size: 14px;">
-            <p>&copy; 2026 MUATH ALOUFI. All rights reserved.</p>
-        </div>
-    </footer>
+            <div class="cred-card">
+                <div>
+                    <h3 style="font-size: 16px; color: #38bdf8; margin-bottom: 5px;">Professional Accreditation - Computer Engineering</h3>
+                    <p style="margin: 0; font-size: 13px; color: #94a3b8;">Saudi Council of Engineers (SCE) | Membership No: 1281856</p>
+                </div>
+                <a href="Certificate.pdf" target="_blank" class="btn-primary" style="padding: 8px 16px; font-size: 13px;">View Certificate</a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <h2>Get in Touch</h2>
+            <p style="margin-bottom: 10px;">I look forward to your communication and supporting my professional career path.</p>
+            <div class="contact-links">
+                <a href="tel:0563610800" class="contact-pill">📞 0563610800</a>
+                <a href="mailto:Muath.aloufi.eng@gmail.com" class="contact-pill">✉️ Email</a>
+                <a href="https://www.linkedin.com/in/eng-muath-aloufi" target="_blank" class="contact-pill">🔗 LinkedIn</a>
+                <a href="http://github.com/muath-aloufi-eng" target="_blank" class="contact-pill">🐙 GitHub</a>
+            </div>
+        </section>
+    </div>
 
 </body>
 </html>
